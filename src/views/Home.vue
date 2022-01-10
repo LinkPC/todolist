@@ -1,13 +1,29 @@
 <template>
 <div class="home">
   <p>¡Hola vue! uwu</p>
-  <p class="red blue--text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aspernatur, ullam incidunt impedit voluptas dicta obcaecati nemo qui sit, nihil odio, modi sapiente recusandae consequuntur illum explicabo corporis enim sunt!</p>
-  <p class="pink lighten-4 red--text text--darken-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, quod rem nulla quae animi non quasi unde atque eius expedita doloremque libero, at, laboriosam ab aut odit dolor recusandae beatae.</p>
-  <h1 class="display-4">Massive Display</h1>
-  <h4 class="display-1">Smaller display</h4>
-  <p class="headline">This is headline</p>
-  <p class="subheading">This is a subheading</p>
-  <p class="caption">Caption</p>
+  
+  <v-btn class="pink white--text">click me</v-btn>
+  <v-btn depressed color="pink">click</v-btn>
+  <v-btn text color="pink">click</v-btn>
+
+  <v-btn depressed class="pink white--text">
+    <v-icon left> mdi-train </v-icon>
+    <span>mugen</span>
+  </v-btn>
+
+  <v-btn depressed small class="pink white--text">
+    <v-icon left small> mdi-train </v-icon>
+    <span>mugen</span>
+  </v-btn>
+
+  <v-btn depressed large class="pink white--text">
+    <span>mugen</span>
+    <v-icon right large> mdi-train </v-icon>
+  </v-btn>
+
+  <v-btn fab depressed small dark color="purple">
+    <v-icon> mdi-one-up </v-icon>
+  </v-btn>
 </div>
 </template>
 
