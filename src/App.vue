@@ -1,10 +1,8 @@
 <template>
   <v-app style="background: #E8E8E8">
     <Navbar />
-    <v-content>
-      <router-view>
-        
-      </router-view>
+    <v-content class="mx-4 mb-4">
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
