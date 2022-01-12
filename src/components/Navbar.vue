@@ -14,6 +14,20 @@
         </v-app-bar>
 
         <v-navigation-drawer  v-model="drawer" app class="primary">
+            <v-layout column align-center>
+                <v-flex>
+                    <v-avatar size="100">
+                        <img src="/avatar-1.png" alt="">
+                    </v-avatar>
+                </v-flex>
+            </v-layout>
+
+            <v-layout column align-center>
+                    <p class="white--text subtitle-1 mt-1 font-weight-medium" >
+                        Kivitruco
+                    </p>
+            </v-layout>
+
             <v-list>
                 <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
                     <v-list-item-action>
