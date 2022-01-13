@@ -40,10 +40,14 @@
             </v-layout>
 
             <v-layout column align-center>
-                    <p class="white--text subtitle-1 mt-1 font-weight-medium" >
-                        Kivitruco
-                    </p>
+                <p class="white--text subtitle-1 mt-1 font-weight-medium" >
+                    Kivitruco
+                </p>
+                <v-flex class="mt-4 mb-3">
+                    <Popup />
+                </v-flex>
             </v-layout>
+
 
             <v-list>
                 <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
@@ -60,8 +64,16 @@
     </nav>
 </template>
 
+
+
 <script>
+
+import Popup from './Popup.vue'
+
 export default {
+
+    components: {Popup},
+
     data(){
         return{
             drawer: false,
