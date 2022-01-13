@@ -7,6 +7,23 @@
                 <span>chat</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
+
+            <!-- dropdown menu -->
+    <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+            <v-btn color="text--grey" dark v-bind="attrs" v-on="on">
+                <v-icon left>mdi-chevron-down</v-icon>
+                <span>Menu</span>
+            </v-btn>
+        </template>
+        <v-list>
+            <v-list-item v-for="(item, index) in links" :key="index" router :to="item.route">
+                <v-list-item-title>{{ item.text }}</v-list-item-title>
+            </v-list-item>
+        </v-list>
+    </v-menu>
+
+
             <v-btn text small flat color="grey">
                 <span>Sign Out</span>
                 <v-icon right> mdi-exit-to-app </v-icon>
