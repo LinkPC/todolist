@@ -24,7 +24,7 @@
     </v-menu>
 
 
-            <v-btn text small flat color="grey">
+            <v-btn text small color="grey">
                 <span>Sign Out</span>
                 <v-icon right> mdi-exit-to-app </v-icon>
             </v-btn>
