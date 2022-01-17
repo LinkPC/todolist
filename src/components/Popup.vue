@@ -28,6 +28,10 @@
 <script>
 import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
+import db from '@/fb'
+import { collection, addDoc } from 'firebase/firestore';
+
+
 export default {
     data(){
         return{
@@ -40,9 +44,21 @@ export default {
         }
     },
     methods: {
-        submit () {
+        async submit() {
             if(this.$refs.form.validate()){
-            console.log(this.title, this.content)    
+                this.loading = true;
+                await addDoc(collection(db, "projects"), {
+                    title: this.title,
+                    content: this.content,
+                    due: format(parseISO(this.due), 'do MMM yyyy'),
+                    person: 'jgpbDev',
+                    status: 'ongoing'
+                }).then(() => {
+                    console.log('Added to DB');
+                    this.dialog = false;
+                    this.loading = false;
+                    this.$emit('projectAdded');
+                });
             }
         }
     },
