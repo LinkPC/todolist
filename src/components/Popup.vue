@@ -1,5 +1,5 @@
 <template>
-    <v-dialog max-width="600px">
+    <v-dialog max-width="600px" v-model="dialog">
         <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on" class="success">
                 <span>Add new project</span>
@@ -19,7 +19,7 @@
                         </template>
                         <v-date-picker :rules="inputRules" scrollable no-title v-model="due"></v-date-picker>
                     </v-menu>
-                    <v-btn class="success mx-0 mt-3" @click="submit">Add project</v-btn>
+                    <v-btn class="success mx-0 mt-3" @click="submit" :loading="loading">Add project</v-btn>
                 </v-form>
             </v-card-text>
         </v-card>
@@ -40,12 +40,16 @@ export default {
             due: null,
             inputRules: [
                 v => v.length >= 3 || 'Minimun length is 3 characters'
-            ]
+            ],
+            loading: false,
+            dialog: false
         }
     },
     methods: {
         async submit() {
             if(this.$refs.form.validate()){
+                this.loading = true;
+
                 this.loading = true;
                 await addDoc(collection(db, "projects"), {
                     title: this.title,
